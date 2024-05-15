@@ -1,0 +1,14 @@
+.container-cards {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 100px);
+}
+
+.card {
+	width: 100px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
