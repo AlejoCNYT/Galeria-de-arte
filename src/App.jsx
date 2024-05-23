@@ -5,18 +5,22 @@ import { getEmployees } from './utils/fetchData'
 export const App = () => {
 	const [isDarkMode, setIsDarkMode] = useState(true)
 	const [employees, setEmployees] = useState([])
-
+	const [order, setOrder] = useState(true)
 	useEffect(() => {
 		const employeesData = getEmployees()
 		setEmployees(employeesData)
 	}, [])
 
-	const sortEmployeesBySalary = (employees) => {
+	const sortEmployeesBySalary = (employees, order) => {
 		console.log('Ordenando empleados... ⌛')
-		return employees.sort((a, b) => b.salary - a.salary)
+		if (order === true) {
+			return employees.sort((a, b) => b.salary - a.salary)
+		} else {
+			return employees.sort((a, b) => a.salary - b.salary)
+		}
 	}
 	// puedes empezar por esta linea ⬇️⬇️
-	const sortedEmployees = sortEmployeesBySalary(employees)
+	const sortedEmployees = sortEmployeesBySalary(employees, order)
 
 	return (
 		<Theme theme={isDarkMode}>
@@ -30,6 +34,9 @@ export const App = () => {
 				</button>
 			</nav>
 			<h1>Lista de empleados ordenada por su salario</h1>
+			<button onClick={() => setOrder((prev) => !prev)}>
+				{order ? 'mayor a menor' : 'menor a mayor'}
+			</button>
 			<section>
 				<table>
 					<thead>
