@@ -1,38 +1,51 @@
-#root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+	padding: 0;
+	margin: 0;
 	text-align: center;
-	display: flex;
-	flex-direction: column;
+	font-family: 'Poppins', sans-serif;
 }
+
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
-	font-weight: 400;
-
 	color-scheme: light dark;
-	color: light dark;
-	background-color: rgba(48, 46, 46, 0.87);
-
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-body {
-	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 320px;
-	min-height: 100vh;
+#root .dark {
+	background-color: rgba(48, 46, 46, 0.87);
+	color: #ffffff;
 }
 
-video {
-	border-radius: 15px;
-	border: 4px solid rgb(55, 55, 55);
-	width: 250px;
+#root .light {
+	background-color: rgba(245, 245, 245, 0.87);
+	color: #282121;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	transition: background-color 0.25s;
+}
+
+img {
+	height: 70px;
+}
+
+.light nav {
+	background-color: #1ed4e1;
+	color: #282121;
+}
+
+.dark nav {
+	background-color: #2d3748;
+	color: #ffffff;
 }
 
 button {
@@ -42,9 +55,73 @@ button {
 	font-size: 1em;
 	font-weight: 500;
 	font-family: inherit;
-	background-color: #1a1a1a;
 	cursor: pointer;
-	transition: border-color 0.25s;
-	padding: 12px;
+	transition: border-color 0.25s, background-color 0.25s;
 	margin: 10px;
+}
+
+.light button {
+	background-color: #4299e1;
+	color: #ffffff;
+}
+
+.dark button {
+	background-color: #1a202c;
+	color: #ffffff;
+}
+
+button:hover {
+	border-color: #3182ce;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0 15%;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	transition: background-color 0.25s;
+}
+
+table {
+	border-collapse: collapse;
+	width: 70%;
+	text-align: left;
+	margin: 20px auto;
+	transition: background-color 0.25s;
+}
+
+thead > tr > th {
+	font-size: 1.5em;
+	padding: 10px;
+	transition: background-color 0.25s;
+}
+
+.light thead > tr > th {
+	background-color: #1ed4e1;
+	color: #282121;
+}
+
+.dark thead > tr > th {
+	background-color: #2d3748;
+	color: #ffffff;
+}
+
+th,
+td {
+	padding: 8px;
+	text-align: center;
+	transition: background-color 0.25s;
+}
+
+.dark th {
+	background-color: #282121;
+	color: #ffffff;
+}
+
+.light th {
+	background-color: #f0e6e6;
+	color: #282121;
 }

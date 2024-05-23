@@ -1,63 +1,29 @@
-const employees = [
-	{
-		id: 1,
-		name: 'Alice Johnson',
-		wage: 50000,
-		icon: '👩',
-		level: 'Senior',
-	},
-	{
-		id: 2,
-		name: 'Bob Smith',
-		wage: 45000,
-		icon: '👨',
-		level: 'Mid',
-	},
-	{
-		id: 3,
-		name: 'Charlie Brown',
-		wage: 40000,
-		icon: '👨',
-		level: 'Junior',
-	},
-	{
-		id: 4,
-		name: 'Diana Prince',
-		wage: 55000,
-		icon: '👩',
-		level: 'Senior',
-	},
-	{
-		id: 5,
-		name: 'Edward King',
-		wage: 42000,
-		icon: '👨',
-		level: 'Mid',
-	},
+const employes = [
+	{ id: 1, name: 'Alice', age: 28, salary: 75000, role: 'front end' },
+	{ id: 2, name: 'Bob', age: 34, salary: 85000, role: 'back end' },
+	{ id: 3, name: 'Charlie', age: 26, salary: 70000, role: 'full stack' },
+	{ id: 4, name: 'David', age: 30, salary: 80000, role: 'front end' },
+	{ id: 5, name: 'Eve', age: 29, salary: 76000, role: 'back end' },
+	{ id: 6, name: 'Frank', age: 32, salary: 83000, role: 'full stack' },
+	{ id: 7, name: 'Grace', age: 27, salary: 72000, role: 'front end' },
+	{ id: 8, name: 'Hank', age: 31, salary: 81000, role: 'back end' },
+	{ id: 9, name: 'Ivy', age: 25, salary: 100000, role: 'full stack' },
+	{ id: 10, name: 'Jack', age: 33, salary: 84000, role: 'front end' },
+	{ id: 11, name: 'Karen', age: 28, salary: 75000, role: 'back end' },
+	{ id: 12, name: 'Leo', age: 34, salary: 85000, role: 'full stack' },
+	{ id: 13, name: 'Mona', age: 26, salary: 70000, role: 'front end' },
+	{ id: 14, name: 'Nate', age: 30, salary: 80000, role: 'back end' },
+	{ id: 15, name: 'Olivia', age: 29, salary: 76000, role: 'full stack' },
+	{ id: 16, name: 'Paul', age: 32, salary: 83000, role: 'front end' },
+	{ id: 17, name: 'Quinn', age: 27, salary: 72000, role: 'back end' },
+	{ id: 18, name: 'Rose', age: 31, salary: 81000, role: 'full stack' },
+	{ id: 19, name: 'Sam', age: 25, salary: 69000, role: 'front end' },
+	{ id: 20, name: 'Tina', age: 33, salary: 84000, role: 'back end' },
+	{ id: 21, name: 'Uma', age: 28, salary: 75000, role: 'full stack' },
+	{ id: 22, name: 'Victor', age: 34, salary: 85000, role: 'front end' },
+	{ id: 23, name: 'Wendy', age: 26, salary: 70000, role: 'back end' },
+	{ id: 24, name: 'Xander', age: 30, salary: 80000, role: 'full stack' },
+	{ id: 25, name: 'Yara', age: 29, salary: 76000, role: 'front end' },
 ]
 
-export const getWage = (number) => {
-	if (number > employees.length) {
-		number = employees.length
-	}
-
-	let acc = 0
-	for (let i = 0; i < number; i++) {
-		acc = acc + employees[i].wage
-	}
-	return acc
-}
-
-export const fibonacciSeriesRecursive = (n) => {
-	console.log('se hizo un calculo')
-	function fibonacci(n) {
-		if (n <= 1) return n
-		return fibonacci(n - 1) + fibonacci(n - 2)
-	}
-
-	const series = []
-	for (let i = 0; i < n; i++) {
-		series.push(fibonacci(i))
-	}
-	return series
-}
+export const getEmployees = () => employes
