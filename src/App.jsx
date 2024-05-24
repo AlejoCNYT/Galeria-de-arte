@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Theme } from './components/Theme'
-import { getEmployees } from './utils/fetchData'
+import { getEmployees, sortEmployeesBySalary } from './utils/fetchData'
 
 export const App = () => {
 	const [isDarkMode, setIsDarkMode] = useState(true)
@@ -11,14 +11,6 @@ export const App = () => {
 		setEmployees(employeesData)
 	}, [])
 
-	const sortEmployeesBySalary = (employees, order) => {
-		console.log('Ordenando empleados... ⌛')
-		if (order === true) {
-			return employees.sort((a, b) => b.salary - a.salary)
-		} else {
-			return employees.sort((a, b) => a.salary - b.salary)
-		}
-	}
 	// puedes empezar por esta linea ⬇️⬇️
 	const sortedEmployees = sortEmployeesBySalary(employees, order)
 
