@@ -1,4 +1,4 @@
-const employes = [
+export const employes = [
 	{ id: 1, name: 'Alice', age: 28, salary: 75000, role: 'front end' },
 	{ id: 2, name: 'Bob', age: 34, salary: 85000, role: 'back end' },
 	{ id: 3, name: 'Charlie', age: 26, salary: 70000, role: 'full stack' },
@@ -9,21 +9,6 @@ const employes = [
 	{ id: 8, name: 'Hank', age: 31, salary: 81000, role: 'back end' },
 	{ id: 9, name: 'Ivy', age: 25, salary: 100000, role: 'full stack' },
 	{ id: 10, name: 'Jack', age: 33, salary: 84000, role: 'front end' },
-	{ id: 11, name: 'Karen', age: 28, salary: 75000, role: 'back end' },
-	{ id: 12, name: 'Leo', age: 34, salary: 85000, role: 'full stack' },
-	{ id: 13, name: 'Mona', age: 26, salary: 70000, role: 'front end' },
-	{ id: 14, name: 'Nate', age: 30, salary: 80000, role: 'back end' },
-	{ id: 15, name: 'Olivia', age: 29, salary: 76000, role: 'full stack' },
-	{ id: 16, name: 'Paul', age: 32, salary: 83000, role: 'front end' },
-	{ id: 17, name: 'Quinn', age: 27, salary: 72000, role: 'back end' },
-	{ id: 18, name: 'Rose', age: 31, salary: 81000, role: 'full stack' },
-	{ id: 19, name: 'Sam', age: 25, salary: 69000, role: 'front end' },
-	{ id: 20, name: 'Tina', age: 33, salary: 84000, role: 'back end' },
-	{ id: 21, name: 'Uma', age: 28, salary: 75000, role: 'full stack' },
-	{ id: 22, name: 'Victor', age: 34, salary: 85000, role: 'front end' },
-	{ id: 23, name: 'Wendy', age: 26, salary: 70000, role: 'back end' },
-	{ id: 24, name: 'Xander', age: 30, salary: 80000, role: 'full stack' },
-	{ id: 25, name: 'Yara', age: 29, salary: 76000, role: 'front end' },
 ]
 
 export const getEmployees = () => employes
