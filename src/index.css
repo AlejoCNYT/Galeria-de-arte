@@ -16,112 +16,63 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-#root .dark {
-	background-color: rgba(48, 46, 46, 0.87);
-	color: #ffffff;
+h1 {
+	font-size: 50px;
 }
 
-#root .light {
-	background-color: rgba(245, 245, 245, 0.87);
-	color: #282121;
-}
-
-nav {
+div > h2 {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px;
-	transition: background-color 0.25s;
+	justify-content: start;
+	padding-left: 35px;
+	font-size: xx-large;
 }
 
-img {
-	height: 70px;
+ul.photoList {
+	--row-height: 20vw;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -2px;
+	padding: 0;
+	list-style-type: none;
+	max-width: 99vw;
 }
 
-.light nav {
-	background-color: #1ed4e1;
-	color: #282121;
+.photoList li {
+	position: relative;
+	height: var(--row-height);
+	min-height: 25vh;
+	max-height: 40vh;
+	flex-grow: 1;
 }
 
-.dark nav {
-	background-color: #2d3748;
-	color: #ffffff;
+.photoList img {
+	max-height: 100%;
+	min-width: 100%;
+	object-fit: cover;
+	vertical-align: bottom;
+	border: 2px solid black;
 }
 
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
+.photoList {
+	position: relative;
+	display: grid;
+	justify-items: center;
+}
+
+.photoList button {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 5;
+	background: rgba(255, 255, 255, 0.7);
+	border: none;
+	padding: 5px;
+	border-radius: 50%;
+	transition: 0.2s;
 	cursor: pointer;
-	transition: border-color 0.25s, background-color 0.25s;
-	margin: 10px;
 }
 
-.light button {
-	background-color: #4299e1;
-	color: #ffffff;
-}
-
-.dark button {
-	background-color: #1a202c;
-	color: #ffffff;
-}
-
-button:hover {
-	border-color: #3182ce;
-}
-
-section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	padding: 0 15%;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 500;
-	transition: background-color 0.25s;
-}
-
-table {
-	border-collapse: collapse;
-	width: 70%;
-	text-align: left;
-	margin: 20px auto;
-	transition: background-color 0.25s;
-}
-
-thead > tr > th {
-	font-size: 1.5em;
-	padding: 10px;
-	transition: background-color 0.25s;
-}
-
-.light thead > tr > th {
-	background-color: #1ed4e1;
-	color: #282121;
-}
-
-.dark thead > tr > th {
-	background-color: #2d3748;
-	color: #ffffff;
-}
-
-th,
-td {
-	padding: 8px;
-	text-align: center;
-	transition: background-color 0.25s;
-}
-
-.dark th {
-	background-color: #282121;
-	color: #ffffff;
-}
-
-.light th {
-	background-color: #f0e6e6;
-	color: #282121;
+.photoList button:hover {
+	font-size: x-large;
+	transition: 0.2s;
 }
