@@ -12,13 +12,13 @@ export const ImageGallery = () => {
 
 	// TODO: crear filtros para tipo de pintura
 	const imagesFiltered = useMemo(() => {
+		console.log('Filtrando imagenes... 🖼️')
 		if (filter === 'All') {
 			return state.allImages
 		}
 		return state.allImages.filter((image) => image.category === filter)
 	}, [filter])
 
-	// Desplazarse a la sección de favoritos cuando hay cambios
 	useEffect(() => {
 		if (typeof favoritesSectionRef.current?.scrollIntoView === 'function') {
 			favoritesSectionRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -29,7 +29,7 @@ export const ImageGallery = () => {
 		<>
 			<button onClick={() => setToggleView((prev) => !prev)}>carrito 🛒</button>
 			<label htmlFor='filter'>filtro</label>
-			<select name='filter' onChange={(e) => setFilter(e.target.value)}>
+			<select id='filter' onChange={(e) => setFilter(e.target.value)}>
 				<option value='All'>Todo</option>
 				<option value='Japanese Art'>Arte japones</option>
 				<option value='Impressionism'>Impresionismo</option>
