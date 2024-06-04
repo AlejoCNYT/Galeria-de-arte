@@ -5,7 +5,9 @@ import { images } from './data'
 export const ImageContext = createContext()
 
 const initialState = {
-	images: images,
+	allImages: images,
+	favorites: [],
+	cart: [],
 }
 
 export const ImageProvider = ({ children }) => {
