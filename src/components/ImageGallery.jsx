@@ -4,9 +4,11 @@ import { Cart } from './Cart'
 
 export const ImageGallery = () => {
 	const [toggleView, setToggleView] = useState(true)
+	const [filter, setFilter] = useState('All')
 
 	const imagesFiltered = () => {
 		console.log('Filtrando imagenes... 🖼️')
+		// validaciones...
 	}
 
 	return (
