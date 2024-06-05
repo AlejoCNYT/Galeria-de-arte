@@ -1,29 +1,13 @@
-import { useContext, useMemo, useRef, useEffect, useState } from 'react'
-import { ImageContext } from '../context/ImageContext'
+import { useState } from 'react'
 import { ListImages } from './ListImages'
 import { Cart } from './Cart'
 
 export const ImageGallery = () => {
 	const [toggleView, setToggleView] = useState(true)
-	const [filter, setFilter] = useState('All')
-	const { state } = useContext(ImageContext)
 
-	const favoritesSectionRef = useRef(null)
-
-	// TODO: crear filtros para tipo de pintura
-	const imagesFiltered = useMemo(() => {
+	const imagesFiltered = () => {
 		console.log('Filtrando imagenes... 🖼️')
-		if (filter === 'All') {
-			return state.allImages
-		}
-		return state.allImages.filter((image) => image.category === filter)
-	}, [filter])
-
-	useEffect(() => {
-		if (typeof favoritesSectionRef.current?.scrollIntoView === 'function') {
-			favoritesSectionRef.current.scrollIntoView({ behavior: 'smooth' })
-		}
-	}, [state.favorites])
+	}
 
 	return (
 		<>
@@ -39,13 +23,13 @@ export const ImageGallery = () => {
 			</select>
 			{toggleView ? (
 				<>
-					<h2 ref={favoritesSectionRef}>Lista de deseos 💖</h2>
-					<ListImages listImages={state.favorites} />
+					<h2>Lista de deseos 💖</h2>
+					<ListImages listImages={'....'} />
 					<h2>Todas la obras 🖼️</h2>
-					<ListImages listImages={imagesFiltered} />
+					<ListImages listImages={'....'} />
 				</>
 			) : (
-				<Cart cart={state.cart} />
+				<Cart cart={'....'} />
 			)}
 		</>
 	)
