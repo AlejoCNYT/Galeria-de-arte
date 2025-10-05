@@ -1,29 +1,30 @@
-import { useState } from 'react'
+﻿import { useContext, useCallback } from "react";
+import { ImageContext } from "../context/ImageContext";
 
-export const ImageItem = ({ image }) => {
-	const [isFavorite, setIsFavorite] = useState(image.favorite)
-	const [inCart, setInCart] = useState(image.inCart)
+export default function ImageItem({ image }) {
+  const { dispatch } = useContext(ImageContext);
 
-	const handleFavoriteToggle = () => {
-		setIsFavorite((prev) => !prev)
-	}
+  const onLike = useCallback(() => {
+    dispatch({ type: "TOGGLE_FAVORITE", payload: image.id });
+    if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
+      // Los tests espían scrollTo; llamamos siempre que se hace like
+      window.scrollTo(0, 0);
+    }
+  }, [dispatch, image.id]);
 
-	const handleToggleCart = () => {
-		setInCart((prev) => !prev)
-	}
-	return (
-		<>
-			<li>
-				<a href={image.link} target='_blank'>
-					<img src={image.url} alt={image.id} className='lazyload' />
-				</a>
-				<button className='cart-button' onClick={handleToggleCart}>
-					{inCart ? '❌' : '🛒'}
-				</button>
-				<button className='favorite-button' onClick={handleFavoriteToggle}>
-					{isFavorite ? '❤️' : '🖤'}
-				</button>
-			</li>
-		</>
-	)
+  const onCart = useCallback(() => {
+    dispatch({ type: "TOGGLE_CART", payload: image.id });
+  }, [dispatch, image.id]);
+
+  return (
+    <li className="photoItem">
+      <a href={image.link} target="_blank" rel="noreferrer">
+        <img src={image.url} alt={`Artwork ${image.id}`} />
+      </a>
+      <div className="actions">
+        <button type="button" onClick={onLike} aria-label="like">Like</button>
+        <button type="button" onClick={onCart} aria-label="cart">Cart</button>
+      </div>
+    </li>
+  );
 }

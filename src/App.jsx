@@ -1,10 +1,14 @@
-import { ImageGallery } from './components/ImageGallery'
+﻿import { ImageProvider } from "./context/ImageContext";
+import ImageGallery from "./components/ImageGallery";
 
-export const App = () => {
-	return (
-		<div className='App'>
-			<h1>Galeria de arte 🎨</h1>
-			<ImageGallery />
-		</div>
-	)
+export function App() {
+  return (
+    <ImageProvider>
+      <div className="App">
+        <h1>Galería de arte </h1>
+        <ImageGallery />
+      </div>
+    </ImageProvider>
+  );
 }
+export default App;

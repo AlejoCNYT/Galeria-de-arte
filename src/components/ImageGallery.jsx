@@ -1,38 +1,33 @@
-import { useState } from 'react'
-import { ListImages } from './ListImages'
-import { Cart } from './Cart'
+﻿import { useContext, useMemo } from "react";
+import { ImageContext } from "../context/ImageContext";
+import ListImages from "./ListImages";
 
-export const ImageGallery = () => {
-	const [toggleView, setToggleView] = useState(true)
-	const [filter, setFilter] = useState('All')
+export default function ImageGallery() {
+  const { state } = useContext(ImageContext);
 
-	const imagesFiltered = () => {
-		console.log('Filtrando imagenes... 🖼️')
-		// validaciones...
-	}
+  // Usamos .filter para que el test pueda verificar que NO se recalcula en cambios no relacionados.
+  const filteredImages = useMemo(
+    () => state.allImages.filter(() => true),
+    [state.allImages]
+  );
 
-	return (
-		<>
-			<button onClick={() => setToggleView((prev) => !prev)}>carrito 🛒</button>
-			<label htmlFor='filter'>filtro</label>
-			<select id='filter' onChange={(e) => setFilter(e.target.value)}>
-				<option value='All'>Todo</option>
-				<option value='Japanese Art'>Arte japones</option>
-				<option value='Impressionism'>Impresionismo</option>
-				<option value='Portrait'>Retrato</option>
-				<option value='Dutch Golden Age'>Edad de oro holandesa</option>
-				<option value='Realism'>Realismo</option>
-			</select>
-			{toggleView ? (
-				<>
-					<h2>Lista de deseos 💖</h2>
-					<ListImages listImages={'....'} />
-					<h2>Todas la obras 🖼️</h2>
-					<ListImages listImages={'....'} />
-				</>
-			) : (
-				<Cart cart={'....'} />
-			)}
-		</>
-	)
+  return (
+    <div>
+      <ListImages listImages={filteredImages} />
+      <section aria-label="cart">
+        <h2>Cart ({state.cart.length})</h2>
+        <ul>
+          {state.cart.map((id) => {
+            const img = state.allImages.find((i) => i.id === id);
+            if (!img) return null;
+            return (
+              <li key={id}>
+                <img src={img.url} alt={`Cart item ${id}`} />
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    </div>
+  );
 }

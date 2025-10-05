@@ -1,14 +1,14 @@
-import { ImageItem } from './ImageItem'
+// src/components/Cart.jsx
+import React from 'react';
 
-export const Cart = ({ cart }) => {
-	return (
-		<>
-			<h1>carrito de compras 🛒</h1>
-			<ul className='photoList'>
-				{cart.map((image) => (
-					<ImageItem image={image} key={image.id} />
-				))}
-			</ul>
-		</>
-	)
-}
+const Cart = ({ cart = [] }) => {
+  return (
+    <ul className="cart">
+      {cart.map((item) => (
+        <li key={item.id}>{item.id}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default Cart;
